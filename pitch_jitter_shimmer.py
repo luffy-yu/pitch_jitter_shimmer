@@ -7,6 +7,7 @@ __date__ = '2018/4/10'
 
 import os
 import sys
+
 # sys.path.append(os.path.join(os.path.dirname(__file__), './praat'))
 print(sys.path)
 import pandas as pd
@@ -14,20 +15,21 @@ import platform
 
 __all__ = ['PitchJitterShimmer']
 
+
 def is_os_window():
     """
     判断是window系统
     :return: True/False
     """
     sysstr = platform.system()
-    if(sysstr.lower() =="windows"):
+    if (sysstr.lower() == "windows"):
         return True
-    elif(sysstr.lower() == "linux"):
-      return False
+    elif (sysstr.lower() == "linux"):
+        return False
     return False
 
-class PitchJitterShimmer(object):
 
+class PitchJitterShimmer(object):
     def __init__(self, praat_file, praat_path='./praat'):
         """
         初始化
@@ -60,6 +62,7 @@ class PitchJitterShimmer(object):
             os.remove(csv_file)
         return df
 
+
 def main():
     praat_file = './praat/praat.praat'
     praat_path = './praat'
@@ -67,6 +70,6 @@ def main():
     voice_file = './test/001_a1_PCGITA.wav'
     print(pjs.calculate(voice_file, True))
 
+
 if __name__ == '__main__':
     main()
-
